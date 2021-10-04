@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--configuration核心配置文件-->
+<configuration>
+
+    <!--配置日志-->
+    <settings>
+        <!--标准的日志工厂实现-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--配置pojo类的别名-->
+    <typeAliases>
+        <!--这种方式可以在pojo类比较多的时候运用,包扫描 但是参数类型必须是类名的小写开头 不能自定义-->
+        <package name="com.hl.pojo"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="com/hl/dao/BookMapper.xml"/>
+    </mappers>
+
+</configuration>
