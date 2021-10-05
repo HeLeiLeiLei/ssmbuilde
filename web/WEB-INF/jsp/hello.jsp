@@ -11,28 +11,57 @@
 
     <script>
         function bookQuery() {
+
+            alert($("input[name='CrrentPage']").val());
             $.ajax({
                 url:"${pageContext.request.contextPath}/book/queryBook",
-                data:{"queryBookName":$("#qBookName").val()},
+                data:{"queryBookName":$("#qBookName").val(),"CrrentPage":$("#index").val()},
                 success:function(data){
-                    alert(bookID)
-                    alert(bookName)
-                    alert(bookCounts)
-                    alert(detail)
                     var html="";
                     for (var i=0;i<data.length;i++){
                         html+="<tr>"+
-                                "<td>"+bookID.data[i]+"</td>"+
-                                "<td>"+data[i].bookName+"</td>"+
-                                "<td>"+data[i].bookCounts+"</td>"+
-                                "<td>"+data[i].detail+"</td>"+
+                            "<td>"+"<input type='checkbox' name='ids' value='"+data[i].bookID+"'}>"+data[i].bookID+"</td>"+
+                            "<td>"+data[i].bookName+"</td>"+
+                            "<td>"+data[i].bookCounts+"</td>"+
+                            "<td>"+data[i].detail+"</td>"+
+                            "<td>"+"<a href='${pageContext.request.contextPath}/book/toUpdate?bookID="+data[i].bookID+"'>更改</a>"+"</td>"+
+                            "<td>"+"<a href='${pageContext.request.contextPath}/book/deleteBookById/"+data[i].bookID+"'>删除</a>"+"</td>"+
                             "</tr>"
                     }
-                    alert(html)
                     $("#content").html(html);
                 },
             })
-
+        }
+        
+        function deletByIds() {
+            var arr=[];
+            $("input:checkbox[name='ids']:checked").map(function(index,elem) {
+                arr.push($(elem).val());
+            });
+            alert(arr)
+            if(arr.length != 0){
+                $.ajax({
+                    url:"${pageContext.request.contextPath}/book/toDeleteBooks",
+                    data:{"ids":arr},
+                    traditional:true,
+                    success:function (data) {
+                        var html="";
+                        for (var i=0;i<data.length;i++){
+                            html+="<tr>"+
+                                "<td>"+"<input type='checkbox' name='ids' value='data[i].bookID'}'>"+data[i].bookID+"</td>"+
+                                "<td>"+data[i].bookName+"</td>"+
+                                "<td>"+data[i].bookCounts+"</td>"+
+                                "<td>"+data[i].detail+"</td>"+
+                                "<td>"+"<a href='${pageContext.request.contextPath}/book/toUpdate?bookID="+data[i].bookID+"'>更改</a>"+"</td>"+
+                                "<td>"+"<a href='${pageContext.request.contextPath}/book/deleteBookById/"+data[i].bookID+"'>删除</a>"+"</td>"+
+                                "</tr>"
+                        }
+                        $("#content").html(html);
+                    }
+                });
+            }else {
+                alert("请选择要删除的选项")
+            }
 
         }
     </script>
@@ -41,7 +70,7 @@
 <body>
 
 <div class="container">
-    <form action="${pageContext.request.contextPath}/book/toDeleteBooks" method="post" id="from1">
+
         <div><h3>${msg}</h3></div>
     <div class="row clearfix">
         <div class="col-md-12 column">
@@ -56,7 +85,7 @@
     <div class="row">
         <div class="col-md-6 column">
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增</a>
-            <input type="submit" class="btn btn-primary" value="批量删除"/>
+            <input type="button" id="btn_deletIds" class="btn btn-primary" value="批量删除" onclick="deletByIds()"/>
             <div class="form-group">
                 <input type="text" name="bookName" id="qBookName" class="form-control" placeholder="请输入查询的名字"/>
                 <button type="button" id="btn" onclick="bookQuery()">查询</button>
@@ -95,10 +124,35 @@
 
             </table>
 
+
+        </div>
+    </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <ul class="pagination">
+                    <li>
+                        <a onclick="bookQuery()">首页</a>
+                        <input name="CrrentPage" value="2" type="hidden"/>
+                    </li>
+                    <li>
+                        <a onclick="bookQuery()">上一页</a>
+                        <input name="CrrentPage" value="3" type="hidden"/>
+                    </li>
+                    <li>
+                        <a onclick="bookQuery()" value="${CrrentPage+1}" name="CrrentPage">下一页</a>
+                        <input name="CrrentPage" value="4" type="hidden"/>
+                    </li>
+                    <li>
+                        <a onclick="bookQuery()" value="${end}" name="CrrentPage">尾页</a>
+                        <input name="CrrentPage" value="5" type="hidden"/>
+                    </li>
+                    <li>
+                        <a>当前为第 ${crrentPage} 页 共  ${totalPage}  页</a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-    </div>
-    </form>
 </div>
 </body>
 

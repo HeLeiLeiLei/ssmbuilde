@@ -28,7 +28,7 @@
     </schema>
     <schema id="8" parent="1" name="ssmbuild">
       <Current>1</Current>
-      <Collation>latin1_swedish_ci</Collation>
+      <Collation>utf8_general_mysql500_ci</Collation>
       <Visible>1</Visible>
     </schema>
     <collation id="9" parent="1" name="armscii8_bin">
@@ -908,40 +908,41 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="228" parent="8" name="books">
-      <Collation>utf8_general_ci</Collation>
+      <Collation>latin1_swedish_ci</Collation>
     </table>
     <column id="229" parent="228" name="bookID">
       <Position>1</Position>
-      <Comment>书id</Comment>
-      <DataType>int(10)|0s</DataType>
+      <DataType>int(30)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="230" parent="228" name="bookName">
       <Position>2</Position>
-      <Comment>书名</Comment>
-      <DataType>varchar(100)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
+      <Collation>utf8_general_mysql500_ci</Collation>
     </column>
     <column id="231" parent="228" name="bookCounts">
       <Position>3</Position>
-      <Comment>数量</Comment>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="232" parent="228" name="detail">
       <Position>4</Position>
-      <Comment>描述</Comment>
-      <DataType>varchar(200)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
+      <Collation>utf8_general_mysql500_ci</Collation>
     </column>
-    <index id="233" parent="228" name="bookID">
+    <key id="233" parent="228" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>bookID</ColNames>
-      <Type>btree</Type>
-    </index>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

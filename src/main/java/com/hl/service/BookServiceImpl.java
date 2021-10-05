@@ -36,4 +36,8 @@ public class BookServiceImpl implements BookService {
     public int deleteBooksByIds(Map map) {
         return bookMapper.deleteBooksByIds(map);
     }
+
+    public int queryBooksNumber(Map map) {
+        return bookMapper.queryBooksNumber(map);
+    }
 }

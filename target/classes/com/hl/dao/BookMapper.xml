@@ -28,6 +28,7 @@
                 bookName like #{queryBookName}
             </if>
         </where>
+        order by bookID asc limit #{startIndex},#{pageSize}
     </select>
 
     <delete id="deleteBooksByIds" parameterType="map">
@@ -38,5 +39,14 @@
             </foreach>
         </where>
     </delete>
+
+    <select id="queryBooksNumber" parameterType="map" resultType="int">
+        select count(1) as count from books
+        <where>
+            <if test="queryBookName != null">
+                bookName like #{queryBookName}
+            </if>
+        </where>
+    </select>
 
 </mapper>

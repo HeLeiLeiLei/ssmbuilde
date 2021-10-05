@@ -19,4 +19,6 @@ public interface BookService {
     List<Books> queryAllBooks(Map map);
     //deleteBooksByIds
     int deleteBooksByIds(Map map);
+    //queryBooksNumber
+    int queryBooksNumber(Map map);
 }
