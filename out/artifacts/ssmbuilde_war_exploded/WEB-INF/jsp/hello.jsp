@@ -55,6 +55,12 @@
                         "<a>"+data.pageUtils.totalPage+"</a>"+
                         "<span>"+"&nbsp;&nbsp;"+"</span>"+
                         "<span>页</span>"+
+                        "<span>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"</span>"+
+                        "<span>共</span>"+
+                        "<span>"+"&nbsp;&nbsp;"+"</span>"+
+                        "<a>"+data.pageUtils.totalNumber+"</a>"+
+                        "<span>"+"&nbsp;&nbsp;"+"</span>"+
+                        "<span>条数据</span>"+
                         "";
                     $("#pageDiv").html(html2);
                 },
@@ -72,18 +78,14 @@
                     data:{"ids":arr},
                     traditional:true,
                     success:function (data) {
-                        var html="";
-                        for (var i=0;i<data.length;i++){
-                            html+="<tr>"+
-                                "<td>"+"<input type='checkbox' name='ids' value='data[i].bookID'}'>"+data[i].bookID+"</td>"+
-                                "<td>"+data[i].bookName+"</td>"+
-                                "<td>"+data[i].bookCounts+"</td>"+
-                                "<td>"+data[i].detail+"</td>"+
-                                "<td>"+"<a href='${pageContext.request.contextPath}/book/toUpdate?bookID="+data[i].bookID+"'>更改</a>"+"</td>"+
-                                "<td>"+"<a href='${pageContext.request.contextPath}/book/deleteBookById/"+data[i].bookID+"'>删除</a>"+"</td>"+
-                                "</tr>";
+                        console.log(data.infor)
+                        if(data.infor == "success"){
+                            alert("删除成功");
+                            window.location.reload();
+                        }else {
+                            alert("删除失败");
+                            lwindow.location.reload();
                         }
-                        $("#content").html(html);
                     }
                 });
             }else {
@@ -91,20 +93,18 @@
             }
 
         }
+
     </script>
 </head>
 
 <body onload="bookQuery()">
 
 <div class="container">
-
-        <div><h3>${msg}</h3></div>
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    <small>书籍列表 —— 显示所有书籍</small>
-                    //<a onclick="bookQuery()"></a>
+                    <small>书籍列表 —— <a onclick="bookQuery()">显示所有书籍</a></small>
                 </h1>
             </div>
         </div>
@@ -148,7 +148,7 @@
                 <thead>
                 </thead>
                 <tbody id="pageDiv">
-                <!--数据展示区域-->
+                <!--分页数据展示区域-->
                 </tbody>
             </table>
         </div>

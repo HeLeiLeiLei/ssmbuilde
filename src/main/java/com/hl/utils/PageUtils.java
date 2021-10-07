@@ -62,13 +62,12 @@ public class PageUtils {
 
     public void setStartIndex(int CrrentPage) {
         if(CrrentPage <= 0){
-            this.startIndex=1;
+            this.startIndex=0;
         }else if(CrrentPage>=totalPage){
             this.startIndex=(totalPage-1)*pageSize;
         }else {
-            this.startIndex = (1-CrrentPage)*pageSize;
+            this.startIndex = (CrrentPage-1)*pageSize;
         }
-
     }
 
     public int getPageSize() {

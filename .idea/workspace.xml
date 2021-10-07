@@ -81,7 +81,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/statics/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpringMVC-Study" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -94,14 +94,16 @@
     <property name="settings.editor.selected.configurable" value="spring" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\ssmbuilde\web\WEB-INF\statics\js" />
-      <recent name="D:\ssmbuilde\web\WEB-INF" />
-      <recent name="D:\ssmbuilde\src\main\resources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ssmbuilde\web" />
       <recent name="D:\ssmbuilde\web\WEB-INF\statics\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ssmbuilde\web" />
+      <recent name="D:\ssmbuilde\web\statics\js" />
+      <recent name="D:\ssmbuilde\web\statics" />
+      <recent name="D:\ssmbuilde\web\WEB-INF\statics\js" />
+      <recent name="D:\ssmbuilde\web\WEB-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -240,7 +242,8 @@
       <workItem from="1633408569285" duration="18202000" />
       <workItem from="1633573759783" duration="104000" />
       <workItem from="1633575194709" duration="701000" />
-      <workItem from="1633592806888" duration="16412000" />
+      <workItem from="1633592806888" duration="21996000" />
+      <workItem from="1633618703168" duration="775000" />
     </task>
     <servers />
   </component>
