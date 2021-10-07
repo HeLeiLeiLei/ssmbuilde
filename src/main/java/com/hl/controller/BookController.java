@@ -29,15 +29,14 @@ public class BookController {
         this.service = service;
     }
 
-    @RequestMapping("/q")
-    public String queryAllBooks(Model model){
-        Map map = new HashMap();
-        map.put("startIndex",1);
-        map.put("pageSize",5);
-        List<Books> booksList = service.queryAllBooks(map);
-        model.addAttribute("list",booksList);
+
+
+    @RequestMapping("/toHello")
+    public String toHello(Model model){
         return "hello";
     }
+
+
     @RequestMapping("/toAddBook")
     public String toAddBook(){
         return "addBook";
@@ -83,6 +82,8 @@ public class BookController {
                 map.put("list",idList);
                 if(service.deleteBooksByIds(map)>0){
                     HashMap map1 = new HashMap();
+                    map1.put("startIndex",1);
+                    map1.put("pageSize",5);
                     List<Books> books = service.queryAllBooks(map1);
                     return books;
                 }
@@ -103,12 +104,16 @@ public class BookController {
 
     @RequestMapping("/queryBook")
     @ResponseBody
-    public List<Books> queryBook(String queryBookName,
+    public Map queryBook(String queryBookName,
                                  @RequestParam(defaultValue ="1")String CrrentPage,
                                  @RequestParam(defaultValue = "5") String pageSize){
         System.out.println("进入到queryBook");
+        System.out.println(CrrentPage);
         HashMap map = new HashMap();
-        map.put("queryBookName","%"+queryBookName+"%");
+        if(queryBookName != null && queryBookName.length()>0){
+            map.put("queryBookName","%"+queryBookName+"%");
+        }
+
         //查询出总共有多少条数据
         int totaleNumber = service.queryBooksNumber(map);
 
@@ -123,10 +128,12 @@ public class BookController {
         map.put("startIndex",pageUtils.getStartIndex());
         map.put("pageSize",pageUtils.getPageSize());
 
-        System.out.println(map.get("startIndex"));
-        System.out.println(map.get("pageSize"));
         List<Books> books = service.queryAllBooks(map);
-        return books;
+        HashMap hashMap = new HashMap();
+        hashMap.put("pageUtils",pageUtils);
+        hashMap.put("list",books);
+        System.out.println(hashMap);
+        return hashMap;
     }
 
 }

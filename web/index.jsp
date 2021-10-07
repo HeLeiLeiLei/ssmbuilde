@@ -20,6 +20,6 @@
       border-radius: 4px;
     }
   </style>
-    <a href="${pageContext.request.contextPath}/book/q"><h3>点击进入列表页</h3></a>
+    <a href="${pageContext.request.contextPath}/book/toHello"><h3>点击进入列表页</h3></a>
   </body>
 </html>

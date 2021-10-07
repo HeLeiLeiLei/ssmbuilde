@@ -4,6 +4,7 @@ import com.hl.pojo.Books;
 
 import java.util.List;
 
+
 public class PageUtils {
     private int index;//首页
     private int end;//尾页
@@ -12,11 +13,9 @@ public class PageUtils {
     private int pageSize;//每页显示多少条
     private int totalNumber;//总条数
     private int totalPage;//多少页
-    private List<Books> list;//查询出来的数据
 
     public PageUtils(int crrentPage, int pageSize, int totalNumber) {
         this.index=1;
-        this.crrentPage = crrentPage;
         this.pageSize = pageSize;
         this.totalNumber = totalNumber;
         if(totalNumber%pageSize==0){
@@ -24,7 +23,7 @@ public class PageUtils {
         }else {
             this.totalPage=totalNumber/pageSize+1;
         }
-        this.end=totalNumber;
+        this.end=totalPage;
     }
 
     public int getIndex() {
@@ -52,8 +51,9 @@ public class PageUtils {
             this.crrentPage = 1;
         }else if(crrentPage>=totalPage){
             this.crrentPage=totalPage;
+        }else{
+            this.crrentPage = crrentPage;
         }
-        this.crrentPage = crrentPage;
     }
 
     public int getStartIndex() {
@@ -63,11 +63,12 @@ public class PageUtils {
     public void setStartIndex(int CrrentPage) {
         if(CrrentPage <= 0){
             this.startIndex=1;
-        }
-        if(CrrentPage>=totalPage){
+        }else if(CrrentPage>=totalPage){
             this.startIndex=(totalPage-1)*pageSize;
+        }else {
+            this.startIndex = (1-CrrentPage)*pageSize;
         }
-        this.startIndex = (1-CrrentPage)*pageSize;
+
     }
 
     public int getPageSize() {
@@ -94,13 +95,6 @@ public class PageUtils {
         this.totalPage = totalPage;
     }
 
-    public List<Books> getList() {
-        return list;
-    }
-
-    public void setList(List<Books> list) {
-        this.list = list;
-    }
 
     @Override
     public String toString() {
@@ -112,7 +106,6 @@ public class PageUtils {
                 ", pageSize=" + pageSize +
                 ", totalNumber=" + totalNumber +
                 ", totalPage=" + totalPage +
-                ", list=" + list +
                 '}';
     }
 }
