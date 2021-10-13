@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hl.dao.UserMapper">
+
+    <select id="queryUser" resultType="User" parameterType="map">
+        select * from user
+        <where>
+            <if test="email != null">
+                email=#{email}
+            </if>
+        </where>
+    </select>
+
+</mapper>

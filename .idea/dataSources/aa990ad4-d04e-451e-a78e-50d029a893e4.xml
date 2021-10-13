@@ -910,14 +910,15 @@
     <table id="228" parent="8" name="books">
       <Collation>latin1_swedish_ci</Collation>
     </table>
-    <column id="229" parent="228" name="bookID">
+    <table id="229" parent="8" name="user"/>
+    <column id="230" parent="228" name="bookID">
       <Position>1</Position>
       <DataType>int(30)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="230" parent="228" name="bookName">
+    <column id="231" parent="228" name="bookName">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
@@ -925,13 +926,13 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_mysql500_ci</Collation>
     </column>
-    <column id="231" parent="228" name="bookCounts">
+    <column id="232" parent="228" name="bookCounts">
       <Position>3</Position>
       <DataType>int(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="232" parent="228" name="detail">
+    <column id="233" parent="228" name="detail">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
@@ -939,9 +940,62 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_mysql500_ci</Collation>
     </column>
-    <key id="233" parent="228" name="PRIMARY">
+    <key id="234" parent="228" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>bookID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="235" parent="229" name="UUID">
+      <Position>1</Position>
+      <Comment>用户ID</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="236" parent="229" name="email">
+      <Position>2</Position>
+      <Comment>用户email</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="237" parent="229" name="password">
+      <Position>3</Position>
+      <Comment>用户密码</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="238" parent="229" name="creatTime">
+      <Position>4</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="239" parent="229" name="creatByUUID">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="240" parent="229" name="updateTime">
+      <Position>6</Position>
+      <Comment>修改时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="241" parent="229" name="updateByUUID">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="242" parent="229" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>UUID</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>

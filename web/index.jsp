@@ -11,16 +11,16 @@
 <body style="background-color:rgb(255,255,255)">
 <div class="content" style="border-top:1px solid #000;
 								border-bottom:1px solid #000">
-  <form action="${pageContext.request.contextPath}/book/toHello">
+  <form action="${pageContext.request.contextPath}/user/login" method="post">
     <div class="form sign-in">
       <h2>欢迎回来</h2>
       <label>
         <span>邮箱</span>
-        <input type="email" required/>
+        <input type="email" name="email" required/>
       </label>
       <label>
         <span>密码</span>
-        <input type="password" />
+        <input type="password" name="password"/>
       </label>
       <button type="submit" class="submit">登 录</button>
     </div>

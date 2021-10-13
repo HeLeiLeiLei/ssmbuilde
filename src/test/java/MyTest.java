@@ -10,16 +10,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 public class MyTest {
 
     @Test
     public void Test(){
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
-
-        BookService bookServiceImpl = (BookService) context.getBean("BookServiceImpl");
-
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        System.out.println(uuid);
     }
 
 }
