@@ -6,4 +6,5 @@ import java.util.Map;
 
 public interface UserMapper {
     User queryUser(Map map);
+    int addUser(User user);
 }

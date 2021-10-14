@@ -19,4 +19,8 @@ public class UserServiceImpl implements UserService {
     public User queryUser(Map map) {
         return userMapper.queryUser(map);
     }
+
+    public int addUser(User user) {
+        return userMapper.addUser(user);
+    }
 }

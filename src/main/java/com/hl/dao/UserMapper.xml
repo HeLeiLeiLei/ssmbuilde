@@ -13,4 +13,9 @@
         </where>
     </select>
 
+    <insert id="addUser" parameterType="User">
+        insert into user (UUID,email,password,userName,creatTime,creatByUUID,updateTime,updateByUUID)
+        values (#{UUID},#{email},#{password},#{userName},#{creatTime},#{creatByUUID},#{updateTime},#{updateByUUID});
+    </insert>
+
 </mapper>

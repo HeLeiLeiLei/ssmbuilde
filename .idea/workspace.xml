@@ -27,22 +27,22 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ssmbuild@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="jdbc:mysql://localhost:3306/ssmbuild?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=UTF-8" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ssmbuild@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="jdbc:mysql://localhost:3306/ssmbuild?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=UTF-8" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ssmbuild@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="jdbc:mysql://localhost:3306/ssmbuild?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=UTF-8" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="ssmbuild: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ssmbuild@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="jdbc:mysql://localhost:3306/ssmbuild?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=UTF-8" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="ssmbuild: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
@@ -71,6 +71,13 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\maven\apache-maven-3.6.1\maven-repo" />
+        <option name="mavenHome" value="E:/maven/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="E:\maven\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -82,7 +89,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/smbms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/statics/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -92,15 +99,15 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="spring" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ssmbuilde\web\statics\images" />
       <recent name="D:\ssmbuilde\web" />
       <recent name="D:\ssmbuilde\web\statics\js" />
       <recent name="D:\ssmbuilde\web\statics" />
       <recent name="D:\ssmbuilde\web\WEB-INF\statics\js" />
-      <recent name="D:\ssmbuilde\web\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ssmbuilde\web" />
@@ -217,7 +224,12 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6957f5a9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -247,6 +259,10 @@
       <workItem from="1633618703168" duration="775000" />
       <workItem from="1633861395174" duration="1042000" />
       <workItem from="1634095261779" duration="16719000" />
+      <workItem from="1634181502781" duration="3718000" />
+      <workItem from="1634204223547" duration="4085000" />
+      <workItem from="1634212248624" duration="4197000" />
+      <workItem from="1634217106152" duration="4499000" />
     </task>
     <servers />
   </component>

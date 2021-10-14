@@ -9,18 +9,27 @@
     <script src="${pageContext.request.contextPath}/statics/js/jquery-1.8.3.min.js"></script>
     <script>
         function queryEmail() {
-            $.ajax({
-                type:'GET',
-                url:"${pageContext.request.contextPath}/user/queryEmail",
-                data:{"email":$("#regist_email").val()},
-                success:function (data) {
-                    if(data.infor == "success"){
-                        validateTip(regist_email.next(),{"color":"green"},data.infor+ " ok",false);
-                    }else {
-                        alert("error")
+            var temp = document.getElementById("email");
+            //对电子邮件的验证
+            var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            if(myreg.test(temp.value) && !myreg.test("")){
+                $.ajax({
+                    type:'GET',
+                    url:"${pageContext.request.contextPath}/user/queryEmail",
+                    data:{"email":$("#email").val()},
+                    success:function (data) {
+                        if(data.infor == "success"){
+                            my_span.innerHTML=
+                                "<img style='width:15px;height:15px' src='${pageContext.request.contextPath}/statics/images/y.png' />";
+                        }else {
+                            my_span.innerHTML="该邮箱已存在".fontcolor("color:red");
+                        }
                     }
-                }
-            })
+                })
+            }else {
+                my_span.innerHTML="邮箱格式不正确".fontcolor("color:red");
+            }
+
         }
     </script>
 </head>
@@ -33,11 +42,11 @@
             <h2>欢迎回来</h2>
             <label>
                 <span>邮箱</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: crimson">${msg1}</span>
-                <input type="email" name="email" id="email" value="${email}" required/>
+                <input type="email" name="login_email" id="login_email" value="${email}" required/>
             </label>
             <label>
                 <span>密码</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: crimson">${msg2}</span>
-                <input type="password" name="password" id="password" value="${password}" required/>
+                <input type="password" name="login_password" id="login_password" value="${password}" required/>
             </label>
             <button type="submit" class="submit">登 录</button>
             </form>
@@ -57,22 +66,22 @@
                 <span class="m--in">登 录</span>
             </div>
         </div>
-        <form action="" >
+        <form action="${pageContext.request.contextPath}/user/addUser" method="post">
             <div class="form sign-up">
                 <h2>立即注册</h2>
                 <label>
                     <span>用户名</span>
-                    <input type="text"  required/>
+                    <input type="text" name="userName" id="userName" required/>
                 </label>
                 <label>
-                    <span>邮箱</span>
-                    <input type="email" name="regist_email" id="regist_email" onblur="queryEmail()" required/>
+                    <span>&nbsp;&nbsp;&nbsp;邮箱</span>&nbsp;&nbsp;&nbsp;<span id="my_span"></span>
+                    <input type="email" name="email" id="email" onblur="queryEmail()" required/>
                 </label>
                 <label>
                     <span>密码</span>
-                    <input type="password" required/>
+                    <input type="password" name="password" required/>
                 </label>
-                <button type="button" class="submit">注 册</button>
+                <button type="submit" class="submit">注 册</button>
             </div>
         </form>
     </div>
